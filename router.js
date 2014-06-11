@@ -5,7 +5,7 @@ var mime = require('./node_modules/mime');
 
 function router (req, res) {
   if (req.url === '/') {
-    fs.readFile('./ttt.html', function (err, data) {
+    fs.readFile('./lobby.html', function (err, data) {
       if (err) {
         res.end('OOPS');
       }
