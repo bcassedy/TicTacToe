@@ -1,7 +1,7 @@
 (function (root) {
   var TicTacToe = root.TicTacToe = (root.TicTacToe || {});
   var Game = TicTacToe.Game = function () {
-    this.player = Game.marks;
+    this.player = Game.marks[0];
     this.board = this.makeBoard();
   }
 
@@ -19,6 +19,7 @@
   };
 
   Game.prototype.displayBoard = function () {
+    $('#board').html('')
     _.times(3, function(i) {
       _.times(3, function(j) {
         $('#board').append('<div data-coords=[' + i + ',' + j + '] class="square"></div>');
@@ -146,11 +147,13 @@
     $('.square').on('click', function (event) {
       var row = $(event.target).data("coords")[0];
       var col = $(event.target).data("coords")[1];
+      if (game.winner()) { return };
       if (game.move([row, col])) {
         $(event.target).addClass(game.player);
         if (game.winner()) {
           var winner = game.winner();
-          alert(winner + ' won!');
+          var msg = '<h2 class="centered winner">' + winner + ' wins</h2>';
+          $('#content').prepend(msg)
         }
       }
 
@@ -158,6 +161,7 @@
     });
 
     $('#new-game').on('click', function (event) {
+      $('.winner').remove();
       game = TicTacToe.game = new TicTacToe.Game();
       TicTacToe.game.displayBoard();
     });
