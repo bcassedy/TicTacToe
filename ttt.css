@@ -5,8 +5,8 @@ h1 {
 .square {
   background-color: lightgrey;
   border: black solid 1px;
-  width: 75px;
-  height: 75px;
+  min-width: 75px;
+  min-height: 75px;
   float: left;
 }
 
@@ -22,11 +22,13 @@ h1 {
 }
 
 .o {
-  background-color: red;
+  background-image: url('https://imo.im/developers/examples/O.png');
+  background-size: 100% 100%;
 }
 
 .x {
-  background-color: blue;
+  background-image: url('https://imo.im/developers/examples/X.png');
+  background-size: 100% 100%;
 }
 
 .buttonHolder {

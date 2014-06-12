@@ -5,7 +5,7 @@
     this.board = this.makeBoard();
   }
 
-  Game.marks = ['x', 'o'];
+  Game.marks = ['o', 'x'];
 
   // board setup functions
   Game.prototype.makeBoard = function () {
@@ -151,7 +151,7 @@
       if (game.move([row, col])) {
         $(event.target).addClass(game.player);
         if (game.winner()) {
-          var winner = game.winner();
+          var winner = game.player;
           var msg = '<h2 class="centered winner">' + winner + ' wins</h2>';
           $('#content').prepend(msg)
         }

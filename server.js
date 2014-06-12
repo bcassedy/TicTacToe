@@ -3,7 +3,7 @@ var fs = require('fs');
 var path = require('path');
 var mime = require('./node_modules/mime');
 var router = require('./router');
-var chatServer = require('./lib/chat_server');
+var gameServer = require('./lib/game_room');
 
 
 var server = http.createServer(function (request, response) {
@@ -12,6 +12,6 @@ var server = http.createServer(function (request, response) {
 
 console.log('Server running');
 
-chatServer(server);
+gameServer(server);
 
 module.exports = server;
