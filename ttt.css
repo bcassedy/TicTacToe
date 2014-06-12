@@ -40,3 +40,12 @@ h1 {
   text-align: center;
 }
 
+.user:hover {
+  background-color: green;
+}
+
+.waiting {
+  width: 100px;
+  margin: auto;
+}
+

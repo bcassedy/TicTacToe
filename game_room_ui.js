@@ -1,15 +1,15 @@
 var handleUsersChange = function (users) {
-  var usersUl = $('<ul id="users"></ul>');
+  var usersDiv = $('<div id="users"></div>');
   _.each(users, function (user) {
-    var userLi = $('<li></li>');
-    userLi.text(user);
-    usersUl.append(userLi);
+    var userDiv = $('<div class="user"></div>');
+    userDiv.text(user);
+    usersDiv.append(userDiv);
   });
-  $('.waiting').html(usersUl);
+  $('.waiting').html(usersDiv);
 }
 
 $(document).ready(function () {
   var socket = io.connect();
-  var game = new Game.Room(socket);
-  chat.socket.on('usersChange', handleUsersChange);
+  var lobby = new TTTGame.Lobby(socket);
+  lobby.socket.on('usersChange', handleUsersChange);
 });

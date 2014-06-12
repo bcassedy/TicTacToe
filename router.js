@@ -9,7 +9,6 @@ function router (req, res) {
       if (err) {
         res.end('OOPS');
       }
-
       res.end(data);
     });
   } else {
